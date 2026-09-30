@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Foglalás | Nails by Rebeka</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a href="../index.html" class="brand">
+      Nails by Rebeka
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Menü">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" id="mainNav">
+      <a href="../index.html">Főoldal</a>
+      <a href="../arlista/index.html">Árlista</a>
+      <a href="../munkam/index.html">Munkáim</a>
+      <a href="../hazirend/index.html">Házirend</a>
+      <a href="index.html" class="active">Foglalás</a>
+    </nav>
+
+    <a href="index.html" class="header-book">Időpontfoglalás</a>
+
+  </div>
+</header>
+
+
+<main class="page">
+  <div class="container">
+
+    <div class="page-head">
+      <div class="section-kicker">IDŐPONTFOGLALÁS</div>
+      <h1 class="page-title">Foglalj <em>időpontot</em></h1>
+    </div>
+
+
+    <section class="booking">
+
+      <div class="booking-copy">
+
+        <h2 class="section-title">
+          Várlak <em>szeretettel.</em>
+        </h2>
+
+        <div class="contact-meta">
+
+          <div>
+            <span class="meta-label">Nyitvatartás</span>
+            <div class="meta-value">
+              Hétfő – Péntek<br>
+              09:00 – 18:00
+            </div>
+          </div>
+
+          <div>
+            <span class="meta-label">Szombat</span>
+            <div class="meta-value">
+              Minden 2. szombat<br>
+              09:00 – 14:00
+            </div>
+          </div>
+
+        </div>
+
+        <p class="booking-note">
+          Válaszd ki a szolgáltatást, a dátumot és a számodra megfelelő
+          szabad időpontot. A foglalás elküldése után a rendszer automatikusan
+          rögzíti az időpontot.
+        </p>
+
+      </div>
+
+
+      <form class="booking-form" id="bookingForm">
+
+        <div class="field">
+          <label for="name">Név</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Teljes neved"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+
+        <div class="field">
+          <label for="phone">Telefonszám</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+36 30 123 4567"
+            autocomplete="tel"
+            required
+          >
+        </div>
+
+
+        <div class="field">
+          <label for="service">Szolgáltatás</label>
+
+          <select id="service" name="service" required>
+            <option value="">Válassz szolgáltatást</option>
+
+            <option value="Építés – S">Építés – S</option>
+            <option value="Építés – M">Építés – M</option>
+            <option value="Építés – L">Építés – L</option>
+            <option value="Építés – XL">Építés – XL</option>
+
+            <option value="Töltés – S">Töltés – S</option>
+            <option value="Töltés – M">Töltés – M</option>
+            <option value="Töltés – L">Töltés – L</option>
+            <option value="Töltés – XL">Töltés – XL</option>
+
+            <option value="Géllakk – XS/S">Géllakk – XS/S</option>
+            <option value="Géllakk – M">Géllakk – M</option>
+            <option value="Géllakk – L">Géllakk – L</option>
+          </select>
+        </div>
+
+
+        <div class="form-row">
+
+          <div class="field">
+            <label for="date">Dátum</label>
+
+            <input
+              type="date"
+              id="date"
+              name="date"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="time">Időpont</label>
+
+            <select
+              id="time"
+              name="time"
+              disabled
+              required
+            >
+              <option value="">
+                Válassz először szolgáltatást és dátumot
+              </option>
+            </select>
+          </div>
+
+        </div>
+
+
+        <div
+          id="availabilityStatus"
+          class="availability-status"
+          aria-live="polite"
+        >
+          Válassz szolgáltatást és dátumot az időpontok megjelenítéséhez.
+        </div>
+
+
+        <div class="field">
+          <label for="note">Megjegyzés</label>
+
+          <textarea
+            id="note"
+            name="note"
+            placeholder="Ha szeretnél valamit előre jelezni..."
+          ></textarea>
+        </div>
+
+
+        <div
+          id="formMessage"
+          class="form-message"
+          role="alert"
+          aria-live="polite"
+        ></div>
+
+
+        <button
+          type="submit"
+          id="submitButton"
+          class="btn btn-dark booking-submit"
+        >
+          Foglalás
+        </button>
+
+      </form>
+
+    </section>
+
+  </div>
+</main>
+
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+
+    <div class="footer-brand">
+      Nails by Rebeka
+    </div>
+
+    <div class="footer-links">
+      <a href="../index.html">Főoldal</a>
+      <a href="../arlista/index.html">Árlista</a>
+      <a href="../munkam/index.html">Munkáim</a>
+      <a href="../hazirend/index.html">Házirend</a>
+      <a href="index.html">Foglalás</a>
+    </div>
+
+    <div class="copyright">
+      © 2026 Nails by Rebeka
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- =====================================================
+     SIKERES FOGLALÁS FELUGRÓ ABLAK
+===================================================== -->
+
+<div
+  id="successModal"
+  class="success-modal"
+  aria-hidden="true"
+>
+
+  <div class="success-modal-overlay"></div>
+
+  <div
+    class="success-modal-box"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="successTitle"
+  >
+
+    <button
+      type="button"
+      id="closeSuccessModal"
+      class="success-modal-close"
+      aria-label="Bezárás"
+    >
+      ×
+    </button>
+
+    <div class="success-check">✓</div>
+
+    <p class="success-kicker">
+      SIKERES FOGLALÁS
+    </p>
+
+    <h2 id="successTitle">
+      Köszönöm a foglalásod!
+    </h2>
+
+    <p class="success-main-text">
+      Várlak szeretettel! ♡
+    </p>
+
+    <p class="success-info">
+      A foglalásod sikeresen rögzítve lett,
+      az időpont bekerült a naptárba.
+    </p>
+
+    <button
+      type="button"
+      id="successOkButton"
+      class="btn btn-dark success-close-button"
+    >
+      Rendben
+    </button>
+
+  </div>
+
+</div>
+
+
+<script src="../js/config.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/foglalas.js"></script>
+
+</body>
+</html>
