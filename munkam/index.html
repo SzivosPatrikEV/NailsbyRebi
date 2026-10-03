@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Nails by Rebeka – kézápolás és műkörömépítés.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nails by Rebeka – munkáim és körömdizájnok.">
   <title>Munkáim | Nails by Rebeka</title>
 
   <link rel="stylesheet" href="../css/style.css">
@@ -14,265 +14,238 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="../">Nails by Rebeka</a>
+    <a class="brand" href="../index.html">Nails by Rebeka</a>
 
     <nav class="nav" aria-label="Főmenü">
-      <a href="../arlista">Árlista</a>
-      <a href="../munkam">Munkáim</a>
-      <a href="../hazirend">Házirend</a>
+      <a href="../arlista/">Árlista</a>
+      <a href="./" class="active">Munkáim</a>
+      <a href="../hazirend/">Házirend</a>
     </nav>
 
-    <a class="header-book" href="../foglalas">Időpont kérése</a>
+    <a class="header-book" href="../foglalas/">Időpont kérése</a>
 
-    <button class="menu-toggle" aria-label="Menü megnyitása" aria-expanded="false">
+    <button class="menu-toggle" aria-label="Menü megnyitása"
+            aria-expanded="false" type="button">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<main>
+<main class="works-page">
 
   <section class="works-hero">
-    <div class="works-hero-bg"></div>
-    <div class="works-hero-circle works-hero-circle-1"></div>
-    <div class="works-hero-circle works-hero-circle-2"></div>
+    <div class="works-container works-hero-grid">
 
-    <div class="container works-hero-grid">
+      <div class="works-copy">
+        <div class="works-kicker">NAILS BY REBEKA · PORTFÓLIÓ</div>
+        <div class="works-count">01 <span>/</span> 18</div>
 
-      <div class="works-hero-copy">
-        <div class="section-kicker works-kicker">Nails by Rebeka · Portfólió</div>
-
-        <p class="works-number">01 / 18</p>
-
-        <h1 class="works-title">
-          Legutóbbi
+        <h1>
+          Legutóbbi<br>
           <em>munkáim.</em>
         </h1>
 
-        <p class="works-intro">
+        <p>
           Egyedi formák, színek és apró részletek.
           Nézd meg azokat a munkákat, amelyekből
           megismerheted a stílusomat.
         </p>
 
         <div class="works-actions">
-          <a class="btn btn-dark" href="#galeria">
-            Munkák megtekintése ↓
-          </a>
-
-          <a class="instagram-link" href="https://www.instagram.com/nailsby_rebekaa/" aria-label="Instagram">
+          <a class="works-button" href="#galeria">Munkák megtekintése ↓</a>
+          <a class="works-instagram" href="#" aria-label="Instagram">
             ◎ @nailsby_rebekaa
           </a>
         </div>
       </div>
 
-      <div class="works-hero-stack">
-        <div class="hero-photo hero-photo-back">
-          <img src="../images/work-04.jpg" alt="Nails by Rebeka – kiemelt munka">
+      <div class="works-visual" aria-hidden="true">
+        <div class="visual-orbit"></div>
+        <div class="visual-photo photo-back">
+          <img src="../images/work-03.jpg" alt="">
         </div>
-
-        <div class="hero-photo hero-photo-front">
-          <img src="../images/work-01.jpg" alt="Nails by Rebeka – kiemelt köröm">
+        <div class="visual-photo photo-front">
+          <img src="../images/work-01.jpg" alt="">
         </div>
-
-        <div class="hero-stamp">
-          <span>NAILS</span>
-          <span>•</span>
-          <span>BEAUTY</span>
-          <span>•</span>
-          <span>REBEKA</span>
+        <div class="visual-stamp">
+          <span>NAILS · BEAUTY</span>
+          <strong>REBEKA</strong>
         </div>
       </div>
 
     </div>
   </section>
 
-
-  <section class="works-intro-band">
-    <div class="container works-band-inner">
-      <span>01</span>
-      <p>Formák</p>
-      <i>✦</i>
-      <p>Színek</p>
-      <i>✦</i>
-      <p>Díszítések</p>
-      <i>✦</i>
-      <p>Egyedi részletek</p>
-      <span>18</span>
+  <section class="works-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>FORMÁK</span><b>✦</b>
+      <span>SZÍNEK</span><b>✦</b>
+      <span>DÍSZÍTÉSEK</span><b>✦</b>
+      <span>EGYEDI RÉSZLETEK</span><b>✦</b>
+      <span>FORMÁK</span><b>✦</b>
+      <span>SZÍNEK</span><b>✦</b>
+      <span>DÍSZÍTÉSEK</span><b>✦</b>
+      <span>EGYEDI RÉSZLETEK</span><b>✦</b>
     </div>
   </section>
 
-
   <section class="works-gallery-section" id="galeria">
-    <div class="container">
+    <div class="works-container">
 
-      <div class="works-gallery-head">
+      <div class="gallery-heading">
         <div>
-          <div class="section-kicker">A galéria</div>
-          <h2 class="works-section-title">
-            Minden szett
-            <em>egy történet.</em>
-          </h2>
+          <div class="works-kicker">MUNKÁK · 2026</div>
+          <h2>Válogatás<br><em>a munkáimból.</em></h2>
         </div>
-
         <p>
-          Kattints bármelyik képre a nagyításhoz.
-          A galériát úgy rendeztem el, hogy minden
-          munka kapjon egy kis saját teret.
+          Minden szett más karaktert kap. Böngészd végig
+          a munkákat, és ha megtaláltad a hozzád illő stílust,
+          kérj időpontot.
         </p>
       </div>
 
-      <div class="gallery works-gallery">
+      <div class="works-gallery">
 
-        <div class="gallery-item work-card work-card-wide">
-          <span class="work-index">01</span>
-          <img src="../images/work-01.jpg" alt="Nails by Rebeka – munka 1" loading="eager">
-          <span class="work-label">01 · Signature</span>
-        </div>
+        <figure class="work-card work-large">
+          <img src="../images/work-01.jpg" alt="Nails by Rebeka – munka 1" loading="lazy">
+          <span class="work-number">01</span>
+          <figcaption>CLASSIC · DETAIL</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card work-card-tall">
-          <span class="work-index">02</span>
+        <figure class="work-card work-tall">
           <img src="../images/work-02.jpg" alt="Nails by Rebeka – munka 2" loading="lazy">
-          <span class="work-label">02 · Nude</span>
-        </div>
+          <span class="work-number">02</span>
+          <figcaption>SOFT · PINK</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card">
-          <span class="work-index">03</span>
+        <figure class="work-card work-medium">
           <img src="../images/work-03.jpg" alt="Nails by Rebeka – munka 3" loading="lazy">
-          <span class="work-label">03 · Detail</span>
-        </div>
+          <span class="work-number">03</span>
+          <figcaption>DETAIL · GLOSS</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card work-card-tall">
-          <span class="work-index">04</span>
+        <figure class="work-card work-medium">
           <img src="../images/work-04.jpg" alt="Nails by Rebeka – munka 4" loading="lazy">
-          <span class="work-label">04 · Classic</span>
-        </div>
+          <span class="work-number">04</span>
+          <figcaption>FRENCH · SOFT</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card">
-          <span class="work-index">05</span>
+        <figure class="work-card work-wide">
           <img src="../images/work-05.jpg" alt="Nails by Rebeka – munka 5" loading="lazy">
-          <span class="work-label">05 · Soft</span>
-        </div>
+          <span class="work-number">05</span>
+          <figcaption>MINIMAL · DETAIL</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card work-card-wide">
-          <span class="work-index">06</span>
+        <figure class="work-card work-tall">
           <img src="../images/work-06.jpg" alt="Nails by Rebeka – munka 6" loading="lazy">
-          <span class="work-label">06 · Statement</span>
-        </div>
+          <span class="work-number">06</span>
+          <figcaption>RED · STATEMENT</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card">
-          <span class="work-index">07</span>
+        <figure class="work-card work-medium">
           <img src="../images/work-07.jpg" alt="Nails by Rebeka – munka 7" loading="lazy">
-          <span class="work-label">07 · Minimal</span>
-        </div>
+          <span class="work-number">07</span>
+          <figcaption>NUDE · DETAIL</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card work-card-tall">
-          <span class="work-index">08</span>
+        <figure class="work-card work-medium">
           <img src="../images/work-08.jpg" alt="Nails by Rebeka – munka 8" loading="lazy">
-          <span class="work-label">08 · Gloss</span>
-        </div>
+          <span class="work-number">08</span>
+          <figcaption>GLOSS · FORM</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card">
-          <span class="work-index">09</span>
+        <figure class="work-card work-wide">
           <img src="../images/work-09.jpg" alt="Nails by Rebeka – munka 9" loading="lazy">
-          <span class="work-label">09 · Shape</span>
-        </div>
+          <span class="work-number">09</span>
+          <figcaption>CHROME · DETAIL</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card work-card-wide">
-          <span class="work-index">10</span>
+        <figure class="work-card work-medium">
           <img src="../images/work-10.jpg" alt="Nails by Rebeka – munka 10" loading="lazy">
-          <span class="work-label">10 · French</span>
-        </div>
+          <span class="work-number">10</span>
+          <figcaption>SOFT · ART</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card">
-          <span class="work-index">11</span>
+        <figure class="work-card work-tall">
           <img src="../images/work-11.jpg" alt="Nails by Rebeka – munka 11" loading="lazy">
-          <span class="work-label">11 · Detail</span>
-        </div>
+          <span class="work-number">11</span>
+          <figcaption>LONG · DETAIL</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card work-card-tall">
-          <span class="work-index">12</span>
+        <figure class="work-card work-medium">
           <img src="../images/work-12.jpg" alt="Nails by Rebeka – munka 12" loading="lazy">
-          <span class="work-label">12 · Glossy</span>
-        </div>
+          <span class="work-number">12</span>
+          <figcaption>NUDE · CLEAN</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card">
-          <span class="work-index">13</span>
+        <figure class="work-card work-medium">
           <img src="../images/work-13.jpg" alt="Nails by Rebeka – munka 13" loading="lazy">
-          <span class="work-label">13 · Nude</span>
-        </div>
+          <span class="work-number">13</span>
+          <figcaption>FRENCH · ART</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card work-card-wide">
-          <span class="work-index">14</span>
+        <figure class="work-card work-wide">
           <img src="../images/work-14.jpg" alt="Nails by Rebeka – munka 14" loading="lazy">
-          <span class="work-label">14 · Art</span>
-        </div>
+          <span class="work-number">14</span>
+          <figcaption>GLOSS · PINK</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card">
-          <span class="work-index">15</span>
+        <figure class="work-card work-medium">
           <img src="../images/work-15.jpg" alt="Nails by Rebeka – munka 15" loading="lazy">
-          <span class="work-label">15 · Soft</span>
-        </div>
+          <span class="work-number">15</span>
+          <figcaption>DETAIL · SHINE</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card work-card-tall">
-          <span class="work-index">16</span>
+        <figure class="work-card work-tall">
           <img src="../images/work-16.jpg" alt="Nails by Rebeka – munka 16" loading="lazy">
-          <span class="work-label">16 · Elegant</span>
-        </div>
+          <span class="work-number">16</span>
+          <figcaption>FORM · SOFT</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card">
-          <span class="work-index">17</span>
+        <figure class="work-card work-medium">
           <img src="../images/work-17.jpg" alt="Nails by Rebeka – munka 17" loading="lazy">
-          <span class="work-label">17 · Shine</span>
-        </div>
+          <span class="work-number">17</span>
+          <figcaption>CLASSIC · GLOSS</figcaption>
+        </figure>
 
-        <div class="gallery-item work-card work-card-wide">
-          <span class="work-index">18</span>
+        <figure class="work-card work-wide">
           <img src="../images/work-18.jpg" alt="Nails by Rebeka – munka 18" loading="lazy">
-          <span class="work-label">18 · Signature</span>
-        </div>
+          <span class="work-number">18</span>
+          <figcaption>FINAL · DETAIL</figcaption>
+        </figure>
 
       </div>
     </div>
   </section>
 
-
   <section class="works-cta">
-    <div class="container works-cta-inner">
-      <div class="section-kicker">Tetszik, amit látsz?</div>
-      <h2>
-        Készítsük el a
-        <em>te következő</em>
-        szetted.
-      </h2>
-      <a class="btn btn-dark" href="../foglalas">Időpontot kérek</a>
+    <div class="works-container cta-inner">
+      <div class="works-kicker">NÁLAD IS MEGSZÜLETHET</div>
+      <h2>Találjuk meg<br><em>a te stílusod.</em></h2>
+      <a class="works-button works-button-light" href="../foglalas/">Időpontot kérek</a>
     </div>
   </section>
-
-
-  <div class="lightbox" aria-hidden="true">
-    <button class="lightbox-close" aria-label="Bezárás">&times;</button>
-    <img src="" alt="">
-  </div>
 
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div class="footer-brand">Nails by Rebeka</div>
-
-    <div class="footer-links">
-      <a href="../arlista">Árlista</a>
-      <a href="../munkam">Munkáim</a>
-      <a href="../hazirend">Házirend</a>
-      <a href="../foglalas">Foglalás</a>
+    <a class="brand" href="../index.html">Nails by Rebeka</a>
+    <div class="footer-nav">
+      <a href="../index.html">Főoldal</a>
+      <a href="../arlista/">Árlista</a>
+      <a href="./">Munkáim</a>
+      <a href="../hazirend/">Házirend</a>
     </div>
-
-    <div class="copyright">© 2026 Pápai-Vörös Rebeka</div>
+    <div class="footer-copy">© 2026 PÁPAI-VÖRÖS REBEKA</div>
   </div>
 </footer>
 
-<script src="../js/main.js"></script>
+<div class="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Bezárás" type="button">&times;</button>
+  <img src="" alt="">
+</div>
 
+<script src="../js/main.js"></script>
 </body>
 </html>
