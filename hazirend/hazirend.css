@@ -1,0 +1,336 @@
+/* =========================================================
+   NAILS BY REBEKA — HÁZIREND OLDAL
+   Saját oldal-stílus és animációk
+   ========================================================= */
+
+   .page {
+    position: relative;
+    overflow: hidden;
+    padding: 110px 0 130px;
+    isolation: isolate;
+  }
+  
+  /* Finom háttérmozgás */
+  .page::before,
+  .page::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(2px);
+  }
+  
+  .page::before {
+    width: 420px;
+    height: 420px;
+    top: 40px;
+    right: -180px;
+    background: radial-gradient(circle, rgba(218, 198, 188, .34), rgba(218, 198, 188, 0) 70%);
+    animation: hazirendFloat 9s ease-in-out infinite;
+  }
+  
+  .page::after {
+    width: 360px;
+    height: 360px;
+    bottom: 80px;
+    left: -180px;
+    background: radial-gradient(circle, rgba(205, 191, 181, .24), rgba(205, 191, 181, 0) 70%);
+    animation: hazirendFloatReverse 11s ease-in-out infinite;
+  }
+  
+  .page-head {
+    max-width: 900px;
+    margin: 0 auto 65px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: hazirendHeadIn .9s cubic-bezier(.22, 1, .36, 1) .08s forwards;
+  }
+  
+  .section-kicker {
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    opacity: .55;
+  }
+  
+  .page-title {
+    margin: 0;
+    font-size: clamp(54px, 8vw, 104px);
+    line-height: .92;
+    font-weight: 400;
+    letter-spacing: -.045em;
+  }
+  
+  /* Házirend kártya */
+  .rules {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 8px 0;
+  }
+  
+  /* Vonal a szabályok mellett */
+  .rules::before {
+    content: "";
+    position: absolute;
+    left: 31px;
+    top: 0;
+    bottom: 145px;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(25, 23, 22, .16) 8%,
+      rgba(25, 23, 22, .16) 92%,
+      transparent
+    );
+  }
+  
+  .rule {
+    position: relative;
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+    padding: 30px 34px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(25, 23, 22, .10);
+    background: rgba(255, 255, 255, .32);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    transition:
+      transform .45s cubic-bezier(.22, 1, .36, 1),
+      background-color .35s ease,
+      border-color .35s ease,
+      box-shadow .35s ease;
+    opacity: 0;
+    transform: translateY(35px);
+    animation: hazirendRuleIn .75s cubic-bezier(.22, 1, .36, 1) forwards;
+  }
+  
+  /* Lépésenként érkezzenek */
+  .rule:nth-child(1) { animation-delay: .18s; }
+  .rule:nth-child(2) { animation-delay: .25s; }
+  .rule:nth-child(3) { animation-delay: .32s; }
+  .rule:nth-child(4) { animation-delay: .39s; }
+  .rule:nth-child(5) { animation-delay: .46s; }
+  .rule:nth-child(6) { animation-delay: .53s; }
+  .rule:nth-child(7) { animation-delay: .60s; }
+  .rule:nth-child(8) { animation-delay: .67s; }
+  
+  .rule:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, .72);
+    border-color: rgba(25, 23, 22, .18);
+    box-shadow: 0 18px 45px rgba(30, 25, 22, .08);
+  }
+  
+  .rule-number {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(25, 23, 22, .18);
+    border-radius: 50%;
+    background: #f7f4f1;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    transition:
+      transform .4s ease,
+      background-color .3s ease,
+      color .3s ease;
+  }
+  
+  .rule:hover .rule-number {
+    transform: rotate(8deg) scale(1.08);
+    background: #171515;
+    color: #fff;
+  }
+  
+  .rule-text {
+    padding-top: 8px;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 760px;
+  }
+  
+  /* Alsó üzenet */
+  .rules-footer {
+    margin-top: 48px;
+    padding: 42px 44px 46px;
+    border-top: 1px solid rgba(25, 23, 22, .14);
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.8;
+    opacity: 0;
+    transform: translateY(25px);
+    animation: hazirendFooterIn .8s cubic-bezier(.22, 1, .36, 1) .85s forwards;
+  }
+  
+  .rules-footer .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform .35s cubic-bezier(.22, 1, .36, 1),
+      box-shadow .35s ease;
+  }
+  
+  .rules-footer .btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+      100deg,
+      transparent,
+      rgba(255,255,255,.22),
+      transparent
+    );
+    transform: skewX(-20deg);
+    transition: left .65s ease;
+  }
+  
+  .rules-footer .btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(20, 18, 17, .16);
+  }
+  
+  .rules-footer .btn:hover::after {
+    left: 135%;
+  }
+  
+  /* Animációk */
+  @keyframes hazirendHeadIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes hazirendRuleIn {
+    from {
+      opacity: 0;
+      transform: translateY(35px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes hazirendFooterIn {
+    from {
+      opacity: 0;
+      transform: translateY(25px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes hazirendFloat {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(-25px, 22px, 0) scale(1.08);
+    }
+  }
+  
+  @keyframes hazirendFloatReverse {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(24px, -18px, 0) scale(1.06);
+    }
+  }
+  
+  /* Mobil */
+  @media (max-width: 700px) {
+    .page {
+      padding: 75px 0 90px;
+    }
+  
+    .page-head {
+      margin-bottom: 42px;
+    }
+  
+    .page-title {
+      font-size: clamp(52px, 17vw, 78px);
+    }
+  
+    .rules::before {
+      left: 23px;
+      bottom: 125px;
+    }
+  
+    .rule {
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 17px;
+      padding: 23px 18px;
+    }
+  
+    .rule-number {
+      width: 42px;
+      height: 42px;
+      font-size: 15px;
+    }
+  
+    .rule-text {
+      padding-top: 3px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+  
+    .rule:hover {
+      transform: translateY(-3px);
+    }
+  
+    .rules-footer {
+      padding: 34px 18px;
+    }
+  
+    .rules-footer .btn {
+      width: 100%;
+    }
+  }
+  
+  /* Akiknél ki van kapcsolva a mozgás, ne animáljunk */
+  @media (prefers-reduced-motion: reduce) {
+    .page::before,
+    .page::after,
+    .page-head,
+    .rule,
+    .rules-footer {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  
+    .rule,
+    .rule-number,
+    .rules-footer .btn,
+    .rules-footer .btn::after {
+      transition: none;
+    }
+  }
+  

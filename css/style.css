@@ -420,19 +420,23 @@ img { display: block; max-width: 100%; }
 }
 .footer-inner {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 1fr auto 1fr;
   gap: 40px;
-  align-items: end;
+  align-items: center;
 }
 .footer-brand {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
   font-size: 31px;
+  white-space: nowrap;
 }
 .footer-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  white-space: nowrap;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: .22em;
@@ -444,6 +448,7 @@ img { display: block; max-width: 100%; }
   font-size: 9px;
   letter-spacing: .18em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 @media (max-width: 900px) {
@@ -474,7 +479,16 @@ img { display: block; max-width: 100%; }
   .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .work-head { align-items: start; flex-direction: column; }
   .footer-inner { grid-template-columns: 1fr; }
-  .copyright { text-align: left; }
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    white-space: normal;
+    gap: 14px 22px;
+  }
+  .copyright {
+    text-align: left;
+    white-space: normal;
+  }
 }
 
 @media (max-width: 560px) {
