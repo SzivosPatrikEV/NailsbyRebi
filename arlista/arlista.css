@@ -1315,6 +1315,84 @@ body.modal-open {
   font-weight: 600;
 }
 
+.decor-modern-row strong {
+  white-space: nowrap;
+  font-weight: 600;
+}
+.decor-modern-notice {
+  width: 100%;
+  margin: 50px auto 0;
+  padding: 25px 20px;
+
+  text-align: center;
+
+  color: #514b48;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.8;
+
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 560px) {
+  .decor-modern-notice {
+    margin-top: 35px;
+    padding: 20px 10px;
+    font-size: 9px;
+    line-height: 1.8;
+    letter-spacing: .08em;
+  }
+}
+
+
+/* =========================================================
+   DÍSZÍTÉS - FONTOS INFORMÁCIÓ
+========================================================= */
+
+.decor-modern-notice {
+  max-width: 850px;
+  margin: 50px auto 0;
+  padding: 22px 30px;
+
+  text-align: center;
+
+  color: #514b48;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.8;
+
+  letter-spacing: .16em;
+  text-transform: uppercase;
+
+  border-top: 1px solid rgba(23, 21, 20, .20);
+  border-bottom: 1px solid rgba(23, 21, 20, .20);
+}
+
+.decor-modern-notice:hover {
+  background: rgba(255, 255, 255, .25);
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   DÍSZÍTÉS - FONTOS INFORMÁCIÓ MOBILON
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .decor-modern-notice {
+    margin-top: 35px;
+    padding: 18px 12px;
+
+    font-size: 9px;
+    line-height: 1.8;
+    letter-spacing: .08em;
+  }
+
+}
+
+
 .price-cta {
   padding: 110px 0;
 }
