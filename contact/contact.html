@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Kapcsolat | Nails by Rebeka</title>
+    <meta
+      name="description"
+      content="Vedd fel a kapcsolatot a Nails by Rebeka szalonnal, nézd meg a pontos helyszínt, és tervezz útvonalat a Google Maps segítségével."
+    />
+
+    <link rel="stylesheet" href="contact.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="contact.js" defer></script>
+  </head>
+  <body>
+    <main class="contact-page">
+      <section class="contact-hero">
+        <span class="eyebrow">
+          <span class="eyebrow-line"></span>
+          NAILS BY REBEKA
+        </span>
+
+        <h1>
+          Lépjünk<br />
+          <span>kapcsolatba.</span>
+        </h1>
+
+        <p class="hero-description">
+          A tökéletes körmök egy beszélgetéssel kezdődnek. Keress bizalommal, és
+          találjuk meg együtt a hozzád leginkább illő stílust!
+        </p>
+
+        <a href="#contact-details" class="hero-link">
+          Kapcsolatfelvétel
+          <span aria-hidden="true">↓</span>
+        </a>
+
+        <div class="hero-decoration" aria-hidden="true">R.</div>
+      </section>
+
+      <section class="contact-content" id="contact-details">
+        <div class="section-heading">
+          <span class="section-number">01 / ELÉRHETŐSÉG</span>
+          <h2>Várlak szeretettel!</h2>
+          <p>
+            Kérdésed van, vagy szeretnél időpontot egyeztetni? Az alábbi
+            elérhetőségeken megtalálsz.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Telefonszám -->
+
+          <article class="contact-card phone-card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M7 3H4.5A1.5 1.5 0 0 0 3 4.5C3 13.6 10.4 21 19.5 21a1.5 1.5 0 0 0 1.5-1.5V17l-5-2-2 3a15 15 0 0 1-7-7l3-2-2-5H7Z"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <span class="card-label">TELEFON</span>
+            <h3>Beszéljünk!</h3>
+
+            <a href="tel:+36307898880" class="contact-value">
+              +36 30 789 8880
+            </a>
+
+            <p>Hívj bátran, ha kérdésed van vagy időpontot szeretnél.</p>
+
+            <a href="tel:+36307898880" class="text-link">
+              Hívás indítása <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <!-- Helyszín -->
+          <article class="contact-card location-card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="12"
+                  cy="10"
+                  r="2.5"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                />
+              </svg>
+            </div>
+
+            <span class="card-label">HELYSZÍN</span>
+            <h3>Hol találsz?</h3>
+
+            <p id="address-text" class="contact-value">
+              A szalon címe hamarosan itt lesz.
+            </p>
+
+            <p>Nézd meg a térképen, és tervezz útvonalat egyszerűen.</p>
+
+            <a
+              id="directions-link"
+              href="https://maps.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-link"
+            >
+              Útvonaltervezés <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+
+        <!-- Google Maps -->
+        <section class="map-section">
+          <div class="map-heading">
+            <div>
+              <span class="section-number">02 / MERRE TALÁLSZ?</span>
+              <h2>Találkozzunk!</h2>
+            </div>
+
+            <span class="map-status">
+              <span class="status-dot"></span>
+              Google Maps
+            </span>
+          </div>
+
+          <div class="map-wrapper">
+            <iframe
+              id="google-map"
+              title="Nails by Rebeka szalon helyszíne"
+              src="https://maps.google.com/maps?q=Óperint%20u.%2013%2C%209700%20Szombathely&z=17&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            >
+            </iframe>
+
+            <a
+              id="map-overlay-link"
+              class="map-overlay"
+              href="https://maps.google.com/maps?q=Óperint%20u.%2013%2C%209700%20Szombathely&z=17&output=embed"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="map-pin" aria-hidden="true">↗</span>
+              <span>
+                <strong>Megnyitás Google Mapsben</strong>
+                <small>Útvonaltervezés a szalonhoz</small>
+              </span>
+            </a>
+          </div>
+        </section>
+
+        <section class="contact-note">
+          <span class="note-symbol" aria-hidden="true">✳</span>
+          <div>
+            <h3>Egy kis énidő neked.</h3>
+            <p>
+              Szeretettel várlak egy kellemes, nyugodt környezetben, ahol a
+              részletekre és a szépségre helyezzük a hangsúlyt. Várom, hogy
+              találkozzunk!
+            </p>
+          </div>
+        </section>
+      </section>
+
+      <footer class="contact-footer">
+        <span>NAILS BY REBEKA</span>
+        <span>Szépség a részletekben.</span>
+      </footer>
+    </main>
+  </body>
+</html>
