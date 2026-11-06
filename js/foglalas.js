@@ -1,11 +1,5 @@
-// =====================================================
-// NAILS BY REBEKA - FOGLALÁS
-// =====================================================
-
-const API_URL =
-  (window.NAILS_CONFIG && window.NAILS_CONFIG.API_URL) ||
-  "http://localhost:3000";
-
+// NAILS BY REBEKA – FOGLALÁS (Apple iCloud CalDAV API)
+const API_URL = (window.NAILS_CONFIG && window.NAILS_CONFIG.API_URL) || "http://localhost:3000";
 const bookingForm = document.getElementById("bookingForm");
 
 if (bookingForm) {
@@ -18,155 +12,105 @@ if (bookingForm) {
   const availabilityStatus = document.getElementById("availabilityStatus");
   const formMessage = document.getElementById("formMessage");
   const submitButton = document.getElementById("submitButton");
-
   const successModal = document.getElementById("successModal");
   const closeSuccessModal = document.getElementById("closeSuccessModal");
   const successOkButton = document.getElementById("successOkButton");
 
-  function getTodayString() {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()).padStart(2, "0");
-    return `${year}-${month}-${day}`;
+  function todayInBudapest() {
+    return new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Europe/Budapest",
+      year: "numeric", month: "2-digit", day: "2-digit"
+    }).format(new Date());
   }
 
-  dateInput.min = getTodayString();
+  dateInput.min = todayInBudapest();
 
   function showMessage(message, type = "error") {
     formMessage.textContent = message;
     formMessage.className = `form-message show ${type}`;
   }
-
   function hideMessage() {
     formMessage.textContent = "";
     formMessage.className = "form-message";
   }
-
   function setLoading(loading) {
     submitButton.disabled = loading;
-    submitButton.textContent = loading ? "Foglalás..." : "Foglalás";
+    submitButton.textContent = loading ? "Mentés az Apple Naptárba..." : "Foglalás";
   }
-
   function openSuccessModal() {
     successModal.classList.add("show");
     successModal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
-
-    setTimeout(() => successOkButton.focus(), 50);
+    window.setTimeout(() => successOkButton.focus(), 50);
   }
-
   function closeSuccessBookingModal() {
     successModal.classList.remove("show");
     successModal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
   }
 
-  closeSuccessModal.addEventListener("click", closeSuccessBookingModal);
-  successOkButton.addEventListener("click", closeSuccessBookingModal);
-
-  successModal
-    .querySelector(".success-modal-overlay")
-    .addEventListener("click", closeSuccessBookingModal);
-
+  closeSuccessModal?.addEventListener("click", closeSuccessBookingModal);
+  successOkButton?.addEventListener("click", closeSuccessBookingModal);
+  successModal?.querySelector(".success-modal-overlay")?.addEventListener("click", closeSuccessBookingModal);
   document.addEventListener("keydown", (event) => {
-    if (
-      event.key === "Escape" &&
-      successModal.classList.contains("show")
-    ) {
-      closeSuccessBookingModal();
-    }
+    if (event.key === "Escape" && successModal?.classList.contains("show")) closeSuccessBookingModal();
   });
 
   async function loadAvailability() {
     const date = dateInput.value;
     const service = serviceSelect.value;
-
     if (!date || !service) {
-      timeSelect.innerHTML = `
-        <option value="">Válassz először szolgáltatást és dátumot</option>
-      `;
+      timeSelect.innerHTML = '<option value="">Válassz először szolgáltatást és dátumot</option>';
       timeSelect.disabled = true;
-      availabilityStatus.textContent =
-        "Válassz szolgáltatást és dátumot az időpontok megjelenítéséhez.";
+      availabilityStatus.textContent = "Válassz szolgáltatást és dátumot az időpontok megjelenítéséhez.";
       availabilityStatus.className = "availability-status";
       return;
     }
 
     timeSelect.disabled = true;
-    timeSelect.innerHTML = `<option value="">Időpontok betöltése...</option>`;
-    availabilityStatus.textContent = "Szabad időpontok keresése...";
+    timeSelect.innerHTML = '<option value="">Időpontok betöltése...</option>';
+    availabilityStatus.textContent = "Szabad időpontok keresése az Apple Naptárban...";
     availabilityStatus.className = "availability-status loading";
 
     try {
-      const url =
-        `${API_URL}/api/availability` +
-        `?date=${encodeURIComponent(date)}` +
-        `&service=${encodeURIComponent(service)}`;
-
+      const url = `${API_URL}/api/availability?date=${encodeURIComponent(date)}&service=${encodeURIComponent(service)}`;
       const response = await fetch(url);
       const data = await response.json();
-
-      if (!response.ok || !data.success) {
-        throw new Error(
-          data.message || data.error || "Nem sikerült lekérni a szabad időpontokat."
-        );
-      }
-
-      const availableTimes = Array.isArray(data.availableTimes)
-        ? data.availableTimes
-        : [];
+      if (!response.ok || !data.success) throw new Error(data.message || "Nem sikerült lekérni a szabad időpontokat.");
 
       timeSelect.innerHTML = "";
-
-      if (availableTimes.length === 0) {
-        timeSelect.innerHTML = `
-          <option value="">Nincs szabad időpont</option>
-        `;
+      if (!Array.isArray(data.availableTimes) || data.availableTimes.length === 0) {
+        timeSelect.innerHTML = '<option value="">Nincs szabad időpont</option>';
         timeSelect.disabled = true;
         availabilityStatus.textContent = "Ezen a napon nincs szabad időpont.";
         availabilityStatus.className = "availability-status unavailable";
         return;
       }
 
-      const defaultOption = document.createElement("option");
-      defaultOption.value = "";
-      defaultOption.textContent = "Válassz időpontot";
-      timeSelect.appendChild(defaultOption);
-
-      availableTimes.forEach((time) => {
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = "Válassz időpontot";
+      timeSelect.appendChild(placeholder);
+      data.availableTimes.forEach((time) => {
         const option = document.createElement("option");
         option.value = time;
         option.textContent = time;
         timeSelect.appendChild(option);
       });
-
       timeSelect.disabled = false;
-      availabilityStatus.textContent =
-        `${availableTimes.length} szabad időpont elérhető.`;
+      availabilityStatus.textContent = `${data.availableTimes.length} szabad időpont elérhető (${data.intervalMinutes === 30 ? "30 perces" : "órás"} kezdési időközökkel).`;
       availabilityStatus.className = "availability-status available";
     } catch (error) {
       console.error("Availability error:", error);
-
-      timeSelect.innerHTML = `
-        <option value="">Nem sikerült betölteni</option>
-      `;
+      timeSelect.innerHTML = '<option value="">Nem sikerült betölteni</option>';
       timeSelect.disabled = true;
-      availabilityStatus.textContent =
-        "Nem sikerült kapcsolódni a foglalási rendszerhez.";
+      availabilityStatus.textContent = error.message || "Nem sikerült kapcsolódni az Apple Naptárhoz.";
       availabilityStatus.className = "availability-status unavailable";
     }
   }
 
-  dateInput.addEventListener("change", () => {
-    hideMessage();
-    loadAvailability();
-  });
-
-  serviceSelect.addEventListener("change", () => {
-    hideMessage();
-    loadAvailability();
-  });
+  dateInput.addEventListener("change", () => { hideMessage(); loadAvailability(); });
+  serviceSelect.addEventListener("change", () => { hideMessage(); loadAvailability(); });
 
   bookingForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -179,84 +123,82 @@ if (bookingForm) {
     const time = timeSelect.value;
     const note = noteInput.value.trim();
 
-    if (!name) {
-      showMessage("Kérlek, add meg a neved!");
-      nameInput.focus();
-      return;
-    }
-
-    if (!phone) {
-      showMessage("Kérlek, add meg a telefonszámod!");
-      phoneInput.focus();
-      return;
-    }
-
-    if (!service) {
-      showMessage("Kérlek, válassz szolgáltatást!");
-      serviceSelect.focus();
-      return;
-    }
-
-    if (!date) {
-      showMessage("Kérlek, válassz dátumot!");
-      dateInput.focus();
-      return;
-    }
-
-    if (!time) {
-      showMessage("Kérlek, válassz időpontot!");
-      timeSelect.focus();
+    if (!name || !phone || !service || !date || !time) {
+      showMessage("Kérlek, töltsd ki az összes kötelező mezőt, és válassz szabad időpontot.");
       return;
     }
 
     setLoading(true);
-
     try {
       const response = await fetch(`${API_URL}/api/book`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, phone, service, date, time, note })
       });
-
       const data = await response.json();
 
       if (response.status === 409) {
-        showMessage(
-          data.message ||
-            data.error ||
-            "Ezt az időpontot közben lefoglalták. Kérlek, válassz másikat."
-        );
+        showMessage(data.message || "Ezt az időpontot közben lefoglalták. Válassz másikat.");
         await loadAvailability();
         return;
       }
-
-      if (!response.ok || !data.success) {
-        throw new Error(
-          data.message || data.error || "A foglalást nem sikerült elküldeni."
-        );
-      }
+      if (!response.ok || !data.success) throw new Error(data.message || "A foglalást nem sikerült az Apple Naptárba menteni.");
 
       bookingForm.reset();
-      dateInput.min = getTodayString();
-
-      timeSelect.innerHTML = `
-        <option value="">Válassz először szolgáltatást és dátumot</option>
-      `;
+      dateInput.min = todayInBudapest();
+      timeSelect.innerHTML = '<option value="">Válassz először szolgáltatást és dátumot</option>';
       timeSelect.disabled = true;
-
-      availabilityStatus.textContent =
-        "Válassz szolgáltatást és dátumot az időpontok megjelenítéséhez.";
+      availabilityStatus.textContent = "Válassz szolgáltatást és dátumot az időpontok megjelenítéséhez.";
       availabilityStatus.className = "availability-status";
-
       openSuccessModal();
     } catch (error) {
       console.error("Booking error:", error);
-      showMessage(
-        error.message ||
-          "Hiba történt a foglalás során. Kérlek, próbáld újra."
-      );
+      showMessage(error.message || "Hiba történt a foglalás során.");
     } finally {
       setLoading(false);
     }
   });
 }
+
+async function loadServices() {
+  const serviceSelect = document.getElementById('service');
+
+  if (!serviceSelect) return;
+
+  try {
+    const API_BASE = window.NAILS_CONFIG.API_URL.replace(/\/$/, '');
+
+    const response = await fetch(`${API_BASE}/api/services`);
+
+    if (!response.ok) {
+      throw new Error('Nem sikerült betölteni a szolgáltatásokat.');
+    }
+
+    const data = await response.json();
+
+    if (!data.success) {
+      throw new Error('Hibás szolgáltatáslista.');
+    }
+
+    serviceSelect.innerHTML =
+      '<option value="">Válassz szolgáltatást</option>';
+
+    data.services.forEach(service => {
+      const option = document.createElement('option');
+
+      option.value = service.name;
+      option.textContent = service.name;
+      option.dataset.duration = service.duration;
+
+      serviceSelect.appendChild(option);
+    });
+
+  } catch (error) {
+    console.error('Services error:', error);
+
+    serviceSelect.innerHTML =
+      '<option value="">Nem sikerült betölteni a szolgáltatásokat</option>';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadServices); 
