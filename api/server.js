@@ -32,7 +32,6 @@ app.use(express.json({ limit: "100kb" }));
 // A foglalási felületen választható három szolgáltatás.
 const services = {
   "Géllak XS - M": 60,
-  "Géllak L": 60,
   "Töltés S": 90,
   "Töltés M": 90,
   "Töltés L": 90,
